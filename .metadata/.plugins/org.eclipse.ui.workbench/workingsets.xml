@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511459907205_1" label="Persistencia" name="Persistencia">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Persistencia" type="4"/>
-</workingSet>
-<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511459935260_3" label="Entidades" name="Entidades">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Entidades" type="4"/>
-</workingSet>
-<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511459983996_4" label="Logica" name="Logica">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Logica" type="4"/>
-</workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511460114480_5" label="ServicioRest" name="ServicioRest">
 <item elementID="=REST" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511460254109_6" label="PresentacionWeb" name="PresentacionWeb">
-<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/Entidades" type="4"/>
 <item elementID="=PresentacionWeb" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
-<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511459897592_0" label="Window Working Set" name="Aggregate for window 1511459897592"/>
-<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511460049432_4" label="Multiple Working Sets" name="Aggregate:Entidades:Logica:Persistencia:">
-<workingSet IMemento.internal.id="Entidades"/>
-<workingSet IMemento.internal.id="Logica"/>
-<workingSet IMemento.internal.id="Persistencia"/>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511975571210_7" label="Dao" name="Dao">
+<item elementID="=CapaDao" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511975604580_8" label="CapaEntidad" name="CapaEntidad">
+<item elementID="=CapaEntidad" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511975644121_9" label="CapaLogica" name="CapaLogica">
+<item elementID="=CapaLogica" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511459897592_0" label="Window Working Set" name="Aggregate for window 1511459897592"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1511460049432_4" label="Multiple Working Sets" name="Aggregate:Entidades:Logica:Persistencia:"/>
+<mruList name="CapaLogica"/>
+<mruList name="CapaEntidad"/>
+<mruList name="Dao"/>
 <mruList name="PresentacionWeb"/>
 <mruList name="ServicioRest"/>
-<mruList name="Logica"/>
-<mruList name="Entidades"/>
-<mruList name="Persistencia"/>
 </workingSetManager>
