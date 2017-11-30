@@ -5,7 +5,7 @@ package com.upn.trabajo3.appjct3.DAO;
  */
 
 public class DaoConexion {
-    private static  String url_base="192.168.1.12:8080/vijap/";
+    private static  String url_base="http://localhost:8080/jct3/";
 
     public  static String getUrl_base()
     {

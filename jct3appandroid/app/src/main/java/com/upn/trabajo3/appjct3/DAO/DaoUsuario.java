@@ -1,7 +1,7 @@
 package com.upn.trabajo3.appjct3.DAO;
-
+import com.upn.trabajo3.appjct3.Entidades.Usuario;
 import com.google.gson.Gson;
-import com.upn.trabajo3.trabajoandroid.Modelo.Entidades.Usuario;
+
 
 import org.json.JSONObject;
 

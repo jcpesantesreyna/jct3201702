@@ -2,7 +2,7 @@ package com.upn.trabajo3.appjct3.DAO;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.upn.trabajo3.trabajoandroid.Modelo.Entidades.Item;
+import com.upn.trabajo3.appjct3.Entidades.Item;
 
 import org.json.JSONObject;
 
