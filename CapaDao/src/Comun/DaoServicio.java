@@ -32,6 +32,20 @@ public class DaoServicio {
 		}finally{cn.close();}
 		return inserto;
 	}
+	public boolean eliminar(int idservicio) throws Exception{		
+		Connection cn = Conexion.Instancia().Conectar();
+		Boolean inserto = false;
+		try {
+			CallableStatement cst = cn.prepareCall("{call pa_eliminar_Servicio(?)}");
+			cst.setInt(1,idservicio);
+			
+			int i = cst.executeUpdate();
+			if(i>0){ inserto = true; }
+		} catch (Exception e) {
+			throw e;
+		}finally{cn.close();}
+		return inserto;
+	}
 	public boolean actualizar(Servicio servicio) throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;

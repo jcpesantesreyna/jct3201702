@@ -122,10 +122,10 @@ public class DaoHistoria {
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Historia historia=new Historia();
-				historia.setNumhistoria(rs.getInt("idHistoria"));
+				historia.setNumhistoria(rs.getInt("numhistoria"));
 				historia.setApepat(rs.getString("apepat"));
 				historia.setApemat(rs.getString("apemat"));
-				historia.setNombres(rs.getString("nnombres"));
+				historia.setNombres(rs.getString("nombres"));
 				historia.setFechanac(rs.getDate("fechanac"));
 				historia.setDni(rs.getString("dni"));
 				historia.setDireccion(rs.getString("direccion"));

@@ -64,29 +64,44 @@ public class ProgramacionController {
 		
 	}
 	@RequestMapping(value = "/actualizarProgramacion", method = RequestMethod.GET,produces="application/json")
-	public @ResponseBody boolean actualizarProgramacion(@RequestParam("idProgramacion")int idProgramacion,
-			@RequestParam("apepat")	String apepat,@RequestParam("apemat")	String apemat ,
-			@RequestParam("nombres")	String nombres,
-			@RequestParam("fechanac")	String fechanac,
-			@RequestParam("dni")	String dni,
-			@RequestParam("direccion")	String direccion,
+	public @ResponseBody boolean actualizarProgramacion(@RequestParam("idprogramacion")
+	int idprogramacion,
+			@RequestParam("idservicio")	int idservicio,@RequestParam("idresponsable")int	idresponsable ,
+			@RequestParam("turno")	String turno,
+			@RequestParam("dialun")	int dialun,
+			@RequestParam("diamar")	int diamar,
+			@RequestParam("diamie")	int diamie,
+			@RequestParam("diajue")	int diajue,
+			@RequestParam("diavie")	int diavie,
+			@RequestParam("diasab")	int diasab,
+			@RequestParam("estado")	boolean estado,
+			
 			HttpServletRequest req) {
 		boolean Programacionl=false;
 
 	
 		Programacion Programacion=new Programacion();
-		Programacion.setNumProgramacion(idProgramacion);
-		
 		
 		
 		try
 		{
-			Programacion.setApepat(apepat);
-			Programacion.setApemat(apemat);
-			Programacion.setNombres(nombres);
-			Programacion.setFechanac(java.sql.Date.valueOf(fechanac));
-			Programacion.setDni(dni);
-			Programacion.setDireccion(direccion);
+			Programacion.setIdprogramacion(idprogramacion);
+			Servicio servicio=new Servicio();
+			servicio.setIdservicio(idservicio);
+			Programacion.setServicio(servicio);
+			Responsable responsable=new Responsable();
+			responsable.setIdresposanble(idresponsable);
+			Programacion.setResponsable(responsable);
+			Programacion.setTurno(turno);
+			Programacion.setDialun(dialun);
+			Programacion.setDiamar(diamar);
+			Programacion.setDiamie(diamie);
+			Programacion.setDiajue(diajue);
+			Programacion.setDiavie(diavie);
+			Programacion.setDiasab(diasab);
+			Programacion.setEstado(estado);
+			
+			
 			Programacionl=LogicaProgramacion.Instancia().actualizar(Programacion);
 			
 		}
@@ -99,7 +114,7 @@ public class ProgramacionController {
 		
 	}
 	@RequestMapping(value = "/obtenerProgramacion", method = RequestMethod.GET,produces="application/json")
-	public @ResponseBody Programacion obtenerProgramacion(@RequestParam("idProgramacion")int idProgramacionl,HttpServletRequest req) {
+	public @ResponseBody Programacion obtenerProgramacion(@RequestParam("idprogramacion")int idProgramacionl,HttpServletRequest req) {
 		Programacion Programacion=null;
 		
 		try
@@ -116,15 +131,16 @@ public class ProgramacionController {
 		
 	}
 	@RequestMapping(value = "/ListaProgramacion", method = RequestMethod.GET,produces="application/json")
-	public @ResponseBody ArrayList<Programacion> ListaProgramacion(
-			 HttpServletRequest req) {
+	public @ResponseBody ArrayList<Programacion> ListaProgramacion(@RequestParam("idservicio")int idservicio,
+			@RequestParam("turno")String turno,HttpServletRequest req
+			 ) {
 				ArrayList<Programacion> lista=null;
 				
 				//
 				try
 				{
 				
-					lista=LogicaProgramacion.Instancia().Listar();
+					lista=LogicaProgramacion.Instancia().Listar(idservicio,turno);
 					
 				
 					
@@ -137,5 +153,28 @@ public class ProgramacionController {
 				
 				
 			}
+
+@RequestMapping(value = "/ListaProgramacion2", method = RequestMethod.GET,produces="application/json")
+public @ResponseBody ArrayList<Programacion> ListaProgramacion2(HttpServletRequest req
+		 ) {
+			ArrayList<Programacion> lista=null;
+			
+			//
+			try
+			{
+			
+				lista=LogicaProgramacion.Instancia().Listar();
+				
+			
+				
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			return lista;
+			
+			
+		}
 }
 

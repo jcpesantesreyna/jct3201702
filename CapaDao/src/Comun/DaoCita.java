@@ -7,8 +7,11 @@ import java.util.ArrayList;
 
 import Conexion.Conexion;
 import Entidades.Cita;
+import Entidades.Historia;
+import Entidades.Programacion;
 import Entidades.Responsable;
 import Entidades.Servicio;
+import Entidades.Usuario;
 
 public class DaoCita {
 	public static DaoCita _Instancia;
@@ -23,7 +26,7 @@ public class DaoCita {
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_insertar_Cita(?,?,?,?,?)}");
+			CallableStatement cst = cn.prepareCall("{call pa_insertar_Cita(?,?,?,?)}");
 			cst.setInt(1,Cita.getUsuario().getIdUsuario());
 			cst.setInt(2, Cita.getHistoria().getNumhistoria());
 			cst.setDate(3, Cita.getFecha());
@@ -67,11 +70,19 @@ public class DaoCita {
 			ResultSet rs = cst.executeQuery();
 			if(rs.next()){
 				Cita = new Cita();
-				cst.setInt(1,Cita.getIdcita());
-				cst.setInt(2,Cita.getUsuario().getIdUsuario());
-				cst.setInt(3, Cita.getHistoria().getNumhistoria());
-				cst.setDate(4, Cita.getFecha());
-				cst.setInt(5, Cita.getProgramacion().getIdprogramacion());
+			    Cita.setIdcita(rs.getInt("idcita"));
+			    Historia historia;
+			    historia=DaoHistoria.Instancia().obtenerHistoria(rs.getInt("idhistoria"));
+				Cita.setHistoria(historia);
+				Programacion programacion;
+				programacion=DaoProgramacion.Instancia().obtenerProgramacion(rs.getInt("idprogramacion"));
+				Cita.setProgramacion(programacion);
+						Usuario usuario=new Usuario();
+						usuario.setIdUsuario(rs.getInt("idusuario"));
+						Cita.setUsuario(usuario);
+			
+				Cita.setFecha(rs.getDate("fecha"));
+				
 																
 			}
 		} catch (Exception e) { throw e;}

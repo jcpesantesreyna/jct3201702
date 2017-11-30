@@ -52,7 +52,10 @@
                 <li class="active">
                     <a href="dashboard.html">
                         <i class="pe-7s-graph"></i>
-                        <a href="${pageContext.request.contextPath}/Listar">Ordenes de Trabajo</a>
+                        <a href="${pageContext.request.contextPath}/ListarServicios">Servicios</a>
+                        <a href="${pageContext.request.contextPath}/ListarResponsables">Medicos/Responsables</a>
+                        <a href="${pageContext.request.contextPath}/ListarProgramacion">Programacion de Horarios</a>
+                        <a href="${pageContext.request.contextPath}/ListarHistoria">HHCC</a>
                     </a>
                 </li>
                 

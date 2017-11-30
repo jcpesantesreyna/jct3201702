@@ -48,17 +48,18 @@ public class DaoProgramacion {
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_actualizar_Programacion(?,?,?,?,?,?,?)}");
-			cst.setInt(1,Programacion.getServicio().getIdservicio());
-			cst.setInt(2, Programacion.getResponsable().getIdresposanble());
-			cst.setString(3, Programacion.getTurno());
-			cst.setInt(4, Programacion.getDialun());
-			cst.setInt(5, Programacion.getDiamar());
-			cst.setInt(6, Programacion.getDiamie());
-			cst.setInt(7, Programacion.getDiajue());
-			cst.setInt(8, Programacion.getDiavie());
-			cst.setInt(9, Programacion.getDiasab());
-			cst.setBoolean(10, Programacion.isEstado());
+			CallableStatement cst = cn.prepareCall("{call pa_actualizar_Programacion(?,?,?,?,?,?,?,?,?,?,?)}");
+			cst.setInt(1,Programacion.getIdprogramacion());
+			cst.setInt(2,Programacion.getServicio().getIdservicio());
+			cst.setInt(3, Programacion.getResponsable().getIdresposanble());
+			cst.setString(4, Programacion.getTurno());
+			cst.setInt(5, Programacion.getDialun());
+			cst.setInt(6, Programacion.getDiamar());
+			cst.setInt(7, Programacion.getDiamie());
+			cst.setInt(8, Programacion.getDiajue());
+			cst.setInt(9, Programacion.getDiavie());
+			cst.setInt(10, Programacion.getDiasab());
+			cst.setBoolean(11, Programacion.isEstado());
 			
 			
 			
@@ -80,10 +81,12 @@ public class DaoProgramacion {
 			if(rs.next()){
 				Programacion = new Programacion();
 				Programacion.setIdprogramacion(rs.getInt("idProgramacion"));
-				Servicio servicio=new Servicio();
-				servicio.setIdservicio(rs.getInt("idservicio"));
-				Responsable responsable=new Responsable();
-				responsable.setIdresposanble(rs.getInt("idresponsable"));
+				Servicio servicio;//=new Servicio();
+				//servicio.setIdservicio(rs.getInt("idservicio"));
+				servicio=DaoServicio.Instancia().obtenerServicio(rs.getInt("idservicio"));
+				Responsable responsable;//=new Responsable();
+				responsable=DaoResponsable.Instancia().obtenerResponsable(rs.getInt("idresposanble"));
+				//responsable.setIdresposanble(rs.getInt("idresposanble"));
 				Programacion.setServicio(servicio);
 				Programacion.setResponsable(responsable);
 				Programacion.setTurno(rs.getString("turno"));
@@ -91,7 +94,7 @@ public class DaoProgramacion {
 				Programacion.setDiamar(rs.getInt("diamar"));
 				Programacion.setDiamie(rs.getInt("diamie"));
 				Programacion.setDiajue(rs.getInt("diajue"));
-				Programacion.setDiavie(rs.getInt("diavie"));
+				Programacion.setDiavie(rs.getInt("diavier"));
 				Programacion.setDiasab(rs.getInt("diasab"));
 				Programacion.setEstado(rs.getBoolean("estado"));	
 																
@@ -100,69 +103,76 @@ public class DaoProgramacion {
 		finally{cn.close();}
 		return Programacion;
 	}
-	public Programacion buscar_por_dni(String dni) throws Exception{
+	
+	
+	public ArrayList<Programacion> Listar(int idservicio, String turno) throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
-		Programacion Programacion = null;
+		ArrayList<Programacion> lista = new ArrayList<Programacion>();
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_obtener_Programacion_dni(?)}");
-			cst.setString(1, dni);
-		
+			CallableStatement cst = cn.prepareCall("{call pa_listar_Programacion(?,?)}");
+			cst.setInt(1,idservicio);
+		cst.setString(2, turno);
 			ResultSet rs = cst.executeQuery();
-			if(rs.next()){
-				Programacion = new Programacion();
-				Programacion.setIdprogramacion(rs.getInt("idProgramacion"));
-				Servicio servicio=new Servicio();
-				servicio.setIdservicio(rs.getInt("idservicio"));
-				Responsable responsable=new Responsable();
-				responsable.setIdresposanble(rs.getInt("idresponsable"));
+			while(rs.next()){
+				Programacion Programacion = new Programacion();
+			Programacion.setIdprogramacion(rs.getInt("idProgramacion"));
+			Servicio servicio;//=new Servicio();
+			//servicio.setIdservicio(rs.getInt("idservicio"));
+			servicio=DaoServicio.Instancia().obtenerServicio(rs.getInt("idservicio"));
+			Responsable responsable;//=new Responsable();
+			responsable=DaoResponsable.Instancia().obtenerResponsable(rs.getInt("idresposanble"));
+			
+			
 				Programacion.setServicio(servicio);
 				Programacion.setResponsable(responsable);
+				
 				Programacion.setTurno(rs.getString("turno"));
 				Programacion.setDialun(rs.getInt("dialun"));
 				Programacion.setDiamar(rs.getInt("diamar"));
 				Programacion.setDiamie(rs.getInt("diamie"));
 				Programacion.setDiajue(rs.getInt("diajue"));
-				Programacion.setDiavie(rs.getInt("diavie"));
+				Programacion.setDiavie(rs.getInt("diavier"));
 				Programacion.setDiasab(rs.getInt("diasab"));
-				Programacion.setEstado(rs.getBoolean("estado"));	
+				Programacion.setEstado(rs.getBoolean("estado"));
+	
+		
 				
-				
-			
-					
-				
+				lista.add(Programacion);
 			}
-		} catch (Exception e) { throw e;}
-		finally{cn.close();}
-		return Programacion;
+		} catch (Exception e) {
+			throw e;
+		}finally{cn.close();}
+		return lista;
 	}
-	
-	
 	public ArrayList<Programacion> Listar() throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
 		ArrayList<Programacion> lista = new ArrayList<Programacion>();
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_listar_Programacions()}");
-			
+			CallableStatement cst = cn.prepareCall("{call pa_listar_Programacion_2()}");
+			;
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Programacion Programacion = new Programacion();
-				Programacion.setIdprogramacion(rs.getInt("idProgramacion"));
-				Servicio servicio=new Servicio();
-				servicio.setIdservicio(rs.getInt("idservicio"));
-				Responsable responsable=new Responsable();
-				responsable.setIdresposanble(rs.getInt("idresponsable"));
+			Programacion.setIdprogramacion(rs.getInt("idProgramacion"));
+			
+				Servicio servicio;//=new Servicio();
+				//servicio.setIdservicio(rs.getInt("idservicio"));
+				servicio=DaoServicio.Instancia().obtenerServicio(rs.getInt("idservicio"));
+				Responsable responsable;//=new Responsable();
+				responsable=DaoResponsable.Instancia().obtenerResponsable(rs.getInt("idresposanble"));
 				Programacion.setServicio(servicio);
 				Programacion.setResponsable(responsable);
+				
 				Programacion.setTurno(rs.getString("turno"));
 				Programacion.setDialun(rs.getInt("dialun"));
 				Programacion.setDiamar(rs.getInt("diamar"));
 				Programacion.setDiamie(rs.getInt("diamie"));
 				Programacion.setDiajue(rs.getInt("diajue"));
-				Programacion.setDiavie(rs.getInt("diavie"));
+				Programacion.setDiavie(rs.getInt("diavier"));
 				Programacion.setDiasab(rs.getInt("diasab"));
 				Programacion.setEstado(rs.getBoolean("estado"));
 	
-			
+		
 				
 				lista.add(Programacion);
 			}
