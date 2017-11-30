@@ -2,7 +2,8 @@ package Comun;
 
 import java.util.ArrayList;
 
-import Entidades.EntUsuario;
+
+import Entidades.Usuario;
 
 
 public class LogicaUsuario {
@@ -17,9 +18,9 @@ public class LogicaUsuario {
 	}
 	//endSingleton
 	
-	public EntUsuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
+	public Usuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
 		try {
-			EntUsuario u =DaoUsuario.Instancia().VerificarAcceso(_Login, _Passw,tipo);
+			Usuario u =DaoUsuario.Instancia().VerificarAcceso(_Login, _Passw,tipo);
 			if(u==null){
 				throw new ArithmeticException("USuario o PAssword no Validop");	
 			}
@@ -31,7 +32,7 @@ public class LogicaUsuario {
 	}
 	
 	
-	public ArrayList<EntUsuario> Listar() throws Exception{	
+	public ArrayList<Usuario> Listar() throws Exception{	
 		try {
 			return DaoUsuario.Instancia().Listar();
 		} catch (Exception e) {

@@ -5,8 +5,7 @@ import java.util.ArrayList;
 
 
 import Conexion.Conexion;
-import Entidades.EntUsuario;
-;
+import Entidades.Usuario;
 
 public class DaoUsuario {
 	//Singleton
@@ -20,9 +19,9 @@ public class DaoUsuario {
 	}
 	//endSingleton
 	
-	public EntUsuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
+	public Usuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
 		Connection cn = Conexion.Instancia().Conectar();
-		EntUsuario u = null;
+		Usuario u = null;
 		try {
 			CallableStatement cst = cn.prepareCall("{call validar_usuario(?,?,?)}");
 			cst.setString(1, _Login);
@@ -30,7 +29,7 @@ public class DaoUsuario {
 			cst.setString(3, tipo);
 			ResultSet rs = cst.executeQuery();
 			if(rs.next()){
-				u = new EntUsuario();
+				u = new Usuario();
 				u.setIdUsuario(rs.getInt("idusuario"));
 				u.setSesion(rs.getString("nombre_sesion"));
 				u.setPassword(rs.getString("contrasenia"));
@@ -61,14 +60,14 @@ public class DaoUsuario {
 		return inserto;
 	}
 	
-	public ArrayList<EntUsuario> Listar() throws Exception{		
+	public ArrayList<Usuario> Listar() throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
-		ArrayList<EntUsuario> lista = new ArrayList<EntUsuario>();
+		ArrayList<Usuario> lista = new ArrayList<Usuario>();
 		try {
 			CallableStatement cst = cn.prepareCall("{call listar_Usuarios()}");
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
-				EntUsuario u = new EntUsuario();
+				Usuario u = new Usuario();
 				
 				
 				u.setIdUsuario(rs.getInt("idusuario"));
@@ -82,7 +81,7 @@ public class DaoUsuario {
 		}finally{cn.close();}
 		return lista;
 	}
-	public boolean Insertar(EntUsuario EntUsuario) throws Exception {
+	public boolean Insertar(Usuario EntUsuario) throws Exception {
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;
 		try {

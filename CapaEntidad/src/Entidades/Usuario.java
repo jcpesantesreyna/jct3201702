@@ -1,6 +1,6 @@
 package Entidades;
 
-public class EntUsuario {
+public class Usuario {
 
 	private int usuarioid;
 	public int getIdUsuario() {
