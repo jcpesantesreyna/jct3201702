@@ -1,10 +1,19 @@
 package Entidades;
 
+import java.sql.Date;
+
 public class Cita {
 	private int idcita;
 	private Usuario usuario;
 	private Historia historia;
 	private Programacion programacion;
+	private Date fecha;
+	public Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 	public int getIdcita() {
 		return idcita;
 	}

@@ -10,6 +10,28 @@ public class Historia {
 	private Date fechanac;
 	private String dni;
 	private String direccion;
+	public int getNumhistoria() {
+		return numhistoria;
+	}
+	public String getApepat() {
+		return apepat;
+	}
+	public String getApemat() {
+		return apemat;
+	}
+	public String getNombres() {
+		return nombres;
+	}
+	public Date getFechanac() {
+		return fechanac;
+	}
+	public String getDni() {
+		return dni;
+	}
+	public String getDireccion() {
+		return direccion;
+	}
+	
 	public void setNumhistoria(int numhistoria) {
 		this.numhistoria = numhistoria;
 	}
