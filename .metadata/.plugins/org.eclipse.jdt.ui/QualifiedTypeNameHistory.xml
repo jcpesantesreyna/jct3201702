@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Entidades.Programacion"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="Entidades.Usuario"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="Comun.LogicaUsuario"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="Comun.LogicaServicio"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Comun.LogicaHistoria"/>
+<fullyQualifiedTypeName name="Entidades.Historia"/>
+<fullyQualifiedTypeName name="Entidades.Servicio"/>
+<fullyQualifiedTypeName name="Entidades.Responsable"/>
+</qualifiedTypeNameHistroy>

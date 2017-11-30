@@ -51,7 +51,7 @@ public class LogicaResponsable {
 			Responsable Responsable =new Responsable();
 			Responsable.setDescripcion(descripcion);
 			Responsable.setIdresposanble(id);
-			return DaoResponsable.Instancia().Insertar(Responsable);
+			return DaoResponsable.Instancia().update(Responsable);
 		} catch (Exception e) {
 			throw e;
 		}

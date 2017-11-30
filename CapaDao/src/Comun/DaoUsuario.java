@@ -19,19 +19,23 @@ public class DaoUsuario {
 	}
 	//endSingleton
 	
-	public Usuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
+	public Usuario VerificarAcceso(String _Login, String _Passw) throws Exception{
 		Connection cn = Conexion.Instancia().Conectar();
 		Usuario u = null;
 		try {
-			CallableStatement cst = cn.prepareCall("{call validar_usuario(?,?,?)}");
-			cst.setString(1, _Login);
+			CallableStatement cst = cn.prepareCall("{call pa_login(?,?)}");
+			/*cst.setString(1, _Login);
 			cst.setString(2, _Passw);
-			cst.setString(3, tipo);
+			*/
+			
+			
+			cst.setString(1, "admin");
+			cst.setString(2, "admin");
 			ResultSet rs = cst.executeQuery();
 			if(rs.next()){
 				u = new Usuario();
 				u.setIdUsuario(rs.getInt("idusuario"));
-				u.setSesion(rs.getString("nombre_sesion"));
+				u.setSesion(rs.getString("sesion"));
 				u.setPassword(rs.getString("contrasenia"));
 				u.setTipousuario(rs.getString("tipo_usuario"));
 			

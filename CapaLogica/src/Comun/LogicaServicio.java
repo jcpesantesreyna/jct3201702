@@ -48,5 +48,15 @@ public class LogicaServicio {
 		}
 	}
 	
+	public boolean actualizar(int idservicio,String descripcion) throws Exception{	
+		try {
+			Servicio servicio =new Servicio();
+			servicio.setDescripcion(descripcion);
+			servicio.setIdservicio(idservicio);
+			return DaoServicio.Instancia().actualizar(servicio);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 	
 }

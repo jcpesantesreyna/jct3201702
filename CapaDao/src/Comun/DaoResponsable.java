@@ -35,7 +35,7 @@ public class DaoResponsable {
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_insertar_Responsable(?,?)}");
+			CallableStatement cst = cn.prepareCall("{call pa_actualizar_Responsable(?,?)}");
 			cst.setInt(1,Responsable.getIdresposanble());
 			cst.setString(2,Responsable.getDescripcion());
 			int i = cst.executeUpdate();

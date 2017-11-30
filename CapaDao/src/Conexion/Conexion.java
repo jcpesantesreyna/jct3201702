@@ -24,6 +24,7 @@ public class Conexion {
 			cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;"+
 					"databaseName=jct3", "sa", "123456");
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw e;
 		}
 		return cn;

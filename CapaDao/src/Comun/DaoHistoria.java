@@ -23,7 +23,7 @@ public class DaoHistoria {
 		Connection cn = Conexion.Instancia().Conectar();
 		Boolean inserto = false;
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_insertar_Historia(?,?,?,?,?,?,?,?,?,?)}");
+			CallableStatement cst = cn.prepareCall("{call pa_insertar_Historia(?,?,?,?,?,?)}");
 		//	cst.setInt(1,historia.getNumhistoria());
 			cst.setString(1, historia.getApepat());
 			cst.setString(2, historia.getApemat());
@@ -50,9 +50,9 @@ public class DaoHistoria {
 			cst.setString(2, historia.getApepat());
 			cst.setString(3, historia.getApemat());
 			cst.setString(4, historia.getNombres());
-			cst.setDate(4, historia.getFechanac());
-			cst.setString(4, historia.getDni());
-			cst.setString(4, historia.getDireccion());
+			cst.setDate(5, historia.getFechanac());
+			cst.setString(6, historia.getDni());
+			cst.setString(7, historia.getDireccion());
 			
 			
 			
@@ -63,6 +63,7 @@ public class DaoHistoria {
 		}finally{cn.close();}
 		return inserto;
 	}
+	
 	public Historia obtenerHistoria(int idHistoria) throws Exception{
 		Connection cn = Conexion.Instancia().Conectar();
 		Historia historia = null;
@@ -73,17 +74,13 @@ public class DaoHistoria {
 			ResultSet rs = cst.executeQuery();
 			if(rs.next()){
 				historia = new Historia();
-				historia.setNumhistoria(rs.getInt("idHistoria"));
+				historia.setNumhistoria(rs.getInt("numhistoria"));
 				historia.setApepat(rs.getString("apepat"));
 				historia.setApemat(rs.getString("apemat"));
-				historia.setNombres(rs.getString("nnombres"));
+				historia.setNombres(rs.getString("nombres"));
 				historia.setFechanac(rs.getDate("fechanac"));
 				historia.setDni(rs.getString("dni"));
-				historia.setDireccion(rs.getString("direccion"));
-				
-				
-			
-					
+				historia.setDireccion(rs.getString("direccion"));								
 				
 			}
 		} catch (Exception e) { throw e;}
@@ -106,11 +103,8 @@ public class DaoHistoria {
 				historia.setNombres(rs.getString("nnombres"));
 				historia.setFechanac(rs.getDate("fechanac"));
 				historia.setDni(rs.getString("dni"));
-				historia.setDireccion(rs.getString("direccion"));
+				historia.setDireccion(rs.getString("direccion"));	
 				
-				
-			
-					
 				
 			}
 		} catch (Exception e) { throw e;}

@@ -18,9 +18,9 @@ public class LogicaUsuario {
 	}
 	//endSingleton
 	
-	public Usuario VerificarAcceso(String _Login, String _Passw,String tipo) throws Exception{
+	public Usuario VerificarAcceso(String _Login, String _Passw) throws Exception{
 		try {
-			Usuario u =DaoUsuario.Instancia().VerificarAcceso(_Login, _Passw,tipo);
+			Usuario u =DaoUsuario.Instancia().VerificarAcceso(_Login, _Passw);
 			if(u==null){
 				throw new ArithmeticException("USuario o PAssword no Validop");	
 			}
