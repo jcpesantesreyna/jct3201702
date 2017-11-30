@@ -9,6 +9,7 @@
     tools:showIn="@layout/activity_reporte">
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvlista"
         android:layout_width="368dp"
         android:layout_height="495dp"
         tools:layout_editor_absoluteX="8dp"

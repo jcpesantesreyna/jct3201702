@@ -96,16 +96,23 @@ public class DaoCita {
 		Connection cn = Conexion.Instancia().Conectar();
 		ArrayList<Cita> lista = new ArrayList<Cita>();
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_listar_Citas()}");
+			CallableStatement cst = cn.prepareCall("{call pa_reporte(?)}");
 			cst.setInt(1, idresponsable);
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Cita Cita = new Cita();
-				cst.setInt(1,Cita.getIdcita());
-				cst.setInt(2,Cita.getUsuario().getIdUsuario());
-				cst.setInt(3, Cita.getHistoria().getNumhistoria());
-				cst.setDate(4, Cita.getFecha());
-				cst.setInt(5, Cita.getProgramacion().getIdprogramacion());		
+			    Cita.setIdcita(rs.getInt("idcita"));
+			    Historia historia;
+			    historia=DaoHistoria.Instancia().obtenerHistoria(rs.getInt("idhistoria"));
+				Cita.setHistoria(historia);
+				Programacion programacion;
+				programacion=DaoProgramacion.Instancia().obtenerProgramacion(rs.getInt("idprogramacion"));
+				Cita.setProgramacion(programacion);
+						Usuario usuario=new Usuario();
+						usuario.setIdUsuario(rs.getInt("idusuario"));
+						Cita.setUsuario(usuario);
+			
+				Cita.setFecha(rs.getDate("fecha"));
 				lista.add(Cita);
 			}
 		} catch (Exception e) {
@@ -113,4 +120,5 @@ public class DaoCita {
 		}finally{cn.close();}
 		return lista;
 	}
+	
 }

@@ -1,0 +1,2 @@
+http://servidorfinal.azurewebsites.net/REST/
+http://servidorfinal.azurewebsites.net/web/

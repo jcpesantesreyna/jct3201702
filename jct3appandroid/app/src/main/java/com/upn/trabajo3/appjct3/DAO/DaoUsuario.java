@@ -36,7 +36,13 @@ public class DaoUsuario {
                 return usuario;
 
 
-            } finally {
+            }
+            catch (Exception e)
+            {
+                System.out.println("lineaa  "+e.getMessage());
+            }
+            finally {
+
                 urlConnection.disconnect();
             }
         }catch (Exception ex){}

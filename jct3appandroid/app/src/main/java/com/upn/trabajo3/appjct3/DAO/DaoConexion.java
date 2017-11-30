@@ -5,7 +5,7 @@ package com.upn.trabajo3.appjct3.DAO;
  */
 
 public class DaoConexion {
-    private static  String url_base="http://localhost:8080/jct3/";
+    private static  String url_base="http://servidorfinal.azurewebsites.net/REST/";
 
     public  static String getUrl_base()
     {

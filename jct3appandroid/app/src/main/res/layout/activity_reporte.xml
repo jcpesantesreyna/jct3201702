@@ -11,15 +11,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <EditText
-            android:id="@+id/txtBuscar"
-            android:layout_width="369dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Ingrese el codigo del doctor" />
-
         <Button
             android:id="@+id/btnBuscar"
             android:layout_width="wrap_content"
@@ -27,11 +18,18 @@
             android:layout_weight="1"
             android:text="Buscar" />
 
+        <EditText
+            android:id="@+id/txtbuscar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="1" />
+
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        android:id="@+id/rvlista"
-        layout="@layout/content_reporte" />
+    <include layout="@layout/content_reporte" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

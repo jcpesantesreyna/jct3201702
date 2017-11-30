@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     @Override
     public void onClick(View v) {
         System.out.println("lineaa  ");
-        if(v.getId()==R.id.btnBuscar)
+        if(v.getId()==R.id.btnIniciar)
         {  System.out.println("lineaa 444");
             LoginController login=new LoginController();
             Usuario usuario=new Usuario();

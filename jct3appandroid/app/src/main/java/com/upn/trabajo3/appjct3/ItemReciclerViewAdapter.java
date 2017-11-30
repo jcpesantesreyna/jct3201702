@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.upn.trabajo3.appjct3.Entidades.Cita;
 import com.upn.trabajo3.appjct3.Entidades.Item;
 
 
@@ -20,33 +22,33 @@ import java.util.ArrayList;
 
 public class ItemReciclerViewAdapter extends RecyclerView.Adapter<ItemReciclerViewAdapter.ViewHolder>
 {
-    private ArrayList<Item> lista;
+    private ArrayList<Cita> lista;
     Context contexto;
-    public ItemReciclerViewAdapter(Context contesxt, ArrayList<Item> listita){
+    public ItemReciclerViewAdapter(Context contesxt, ArrayList<Cita> listita){
         this.lista = listita;
         this.contexto = contesxt;
     }
     @Override
     public ItemReciclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_reporte, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
         return new ItemReciclerViewAdapter.ViewHolder(v);
     }
     @Override
     public void onBindViewHolder(final ItemReciclerViewAdapter.ViewHolder holder, int position) {
         try {
-            final Item item=lista.get(position);
-            /*TextView lblid = holder.view.findViewById(R.id.idcomandaitem);
-            TextView lblmonto=holder.view.findViewById(R.id.idmontocomanda);
-            TextView lblFecha=holder.view.findViewById(R.id.lblfecha_reporte);*/
+            final Cita item=lista.get(position);
+            TextView lblnombres = holder.view.findViewById(R.id.lblnombres);
+            TextView lblservicio=holder.view.findViewById(R.id.lblservicio);
+            TextView lblFecha=holder.view.findViewById(R.id.lblfecha);
 
          //   System.out.println("lineaa  "+item.getIdmesa());
 
             //imgArticulo.setImageDrawable(R.drawable.ic_launcher_foreground);
 
-        /*    lblid.setText(""+(item.getIdmesa()));
-            lblFecha.setText(item.getFecha_registro());
-            lblmonto.setText(String.valueOf(lista.get(position).getTotal()));
-*/
+            lblnombres.setText(item.getHistoria().getApepat()+" "+item.getHistoria().getApemat()+" "+item.getHistoria().getNombres() );
+            lblFecha.setText(""+item.getFecha());
+            lblservicio.setText(item.getProgramacion().getServicio().getDescripcion());
+
 
 
         }catch(Exception e){}
