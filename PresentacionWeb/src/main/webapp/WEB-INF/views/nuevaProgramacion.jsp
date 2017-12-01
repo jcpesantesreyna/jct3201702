@@ -17,24 +17,37 @@
 					
 					</c:forEach>
 			</select> 
+			<br>
   Responsable:<br>
 <select name="idresponsable">
 			
 			  	<c:forEach items="${listaresponsables}" var="responsable">
-			  	 <option value="${responsable.idresponsable}">${responsable.descripcion}</option>
+			  	 <option value="${responsable.idresposanble}">${responsable.descripcion}</option>
 					
 					</c:forEach>
 			</select> 
+			<br>
+	Turno		
   <input type="text" name="turno" ><br>
+  Lunes<br>
   <input type="text" name="dialun" ><br>
+  Martes<br>
   <input type="text" name="diamar" ><br>
+  Miercoles
+  <br>
   <input type="text" name="diamie" ><br>
+  Jueves<br>
   <input type="text" name="diajue"><br>
+  Viernes<br>
   <input type="text" name="diavie"><br>
-  <input type="text" name="disab" ><br>
-  <input type="text" name="estado" ><br>
+  Sabado<br>
+
+
+    <input type="text" name="diasab" ><br>
+      estado <br>
+      <input type="text" name="estado" ><br>
+
   
-  <input type="hidden"name="idprogramacion" value="${programacion.idprogramacion}" >
   <input type="submit" value="Enviar"> 
 </form> 
 </body>

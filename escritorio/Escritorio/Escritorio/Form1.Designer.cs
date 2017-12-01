@@ -45,6 +45,17 @@
             this.lblSabado = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Consultar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txthistoria = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNombres = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblfecha = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCupos = new System.Windows.Forms.TextBox();
+            this.Registrar = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -132,7 +143,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(39, 104);
+            this.label8.Location = new System.Drawing.Point(23, 102);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 17;
@@ -146,6 +157,7 @@
             this.cboServicio.Name = "cboServicio";
             this.cboServicio.Size = new System.Drawing.Size(135, 21);
             this.cboServicio.TabIndex = 18;
+            this.cboServicio.SelectedIndexChanged += new System.EventHandler(this.cboServicio_SelectedIndexChanged);
             // 
             // cboResponsable
             // 
@@ -176,6 +188,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Registrar);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.lblfecha);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtNombres);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txthistoria);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(29, 250);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(433, 166);
@@ -192,12 +212,100 @@
             this.Consultar.TabIndex = 23;
             this.Consultar.Text = "Consultar";
             this.Consultar.UseVisualStyleBackColor = true;
+            this.Consultar.Click += new System.EventHandler(this.Consultar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ingrese el numero de historia clinica";
+            // 
+            // txthistoria
+            // 
+            this.txthistoria.Location = new System.Drawing.Point(218, 27);
+            this.txthistoria.Name = "txthistoria";
+            this.txthistoria.Size = new System.Drawing.Size(100, 20);
+            this.txthistoria.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(29, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nombres y Apellidos";
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Location = new System.Drawing.Point(137, 58);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(181, 20);
+            this.txtNombres.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Fecha:";
+            // 
+            // lblfecha
+            // 
+            this.lblfecha.AutoSize = true;
+            this.lblfecha.Location = new System.Drawing.Point(134, 85);
+            this.lblfecha.Name = "lblfecha";
+            this.lblfecha.Size = new System.Drawing.Size(0, 13);
+            this.lblfecha.TabIndex = 5;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(324, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Consultar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(235, 231);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 13);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "Cupos Disponibles";
+            // 
+            // txtCupos
+            // 
+            this.txtCupos.Location = new System.Drawing.Point(335, 228);
+            this.txtCupos.Name = "txtCupos";
+            this.txtCupos.Size = new System.Drawing.Size(100, 20);
+            this.txtCupos.TabIndex = 25;
+            // 
+            // Registrar
+            // 
+            this.Registrar.Location = new System.Drawing.Point(172, 105);
+            this.Registrar.Name = "Registrar";
+            this.Registrar.Size = new System.Drawing.Size(75, 23);
+            this.Registrar.TabIndex = 7;
+            this.Registrar.Text = "button2";
+            this.Registrar.UseVisualStyleBackColor = true;
+            this.Registrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 453);
+            this.Controls.Add(this.txtCupos);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Consultar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblSabado);
@@ -217,6 +325,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,6 +351,16 @@
         private System.Windows.Forms.Label lblSabado;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button Consultar;
+        private System.Windows.Forms.TextBox txthistoria;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.Label lblfecha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCupos;
+        private System.Windows.Forms.Button Registrar;
     }
 }
 

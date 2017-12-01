@@ -10,7 +10,7 @@ namespace Escritorio
     {
 
         private int idprogramacion;
-       // private Servicio servicio;
+        private Servicio servicio;
         private Responsable responsable;
         private String turno;
         private int dialun;
@@ -21,87 +21,148 @@ namespace Escritorio
         private int diavie;
         private int diasab;
         private bool estado;
-        public int getIdprogramacion()
+
+        public int Idprogramacion
         {
-            return idprogramacion;
-        }
-        public void setIdprogramacion(int idprogramacion)
-        {
-            this.idprogramacion = idprogramacion;
-        }
-    
-        public Responsable getResponsable()
-        {
-            return responsable;
-        }
-        public void setResponsable(Responsable responsable)
-        {
-            this.responsable = responsable;
-        }
-        public String getTurno()
-        {
-            return turno;
-        }
-        public void setTurno(String turno)
-        {
-            this.turno = turno;
-        }
-        public int getDialun()
-        {
-            return dialun;
-        }
-        public void setDialun(int dialun)
-        {
-            this.dialun = dialun;
-        }
-        public int getDiamar()
-        {
-            return diamar;
-        }
-        public void setDiamar(int diamar)
-        {
-            this.diamar = diamar;
-        }
-        public int getDiamie()
-        {
-            return diamie;
-        }
-        public void setDiamie(int diamie)
-        {
-            this.diamie = diamie;
-        }
-        public int getDiajue()
-        {
-            return diajue;
-        }
-        public void setDiajue(int diajue)
-        {
-            this.diajue = diajue;
-        }
-        public int getDiavie()
-        {
-            return diavie;
-        }
-        public void setDiavie(int diavie)
-        {
-            this.diavie = diavie;
-        }
-        public int getDiasab()
-        {
-            return diasab;
-        }
-        public void setDiasab(int diasab)
-        {
-            this.diasab = diasab;
-        }
-        public bool isEstado()
-        {
-            return estado;
-        }
-        public void setEstado(bool estado)
-        {
-            this.estado = estado;
+            get
+            {
+                return idprogramacion;
+            }
+
+            set
+            {
+                idprogramacion = value;
+            }
         }
 
+        internal Servicio Servicio
+        {
+            get
+            {
+                return servicio;
+            }
+
+            set
+            {
+                servicio = value;
+            }
+        }
+
+        public Responsable Responsable
+        {
+            get
+            {
+                return responsable;
+            }
+
+            set
+            {
+                responsable = value;
+            }
+        }
+
+        public string Turno
+        {
+            get
+            {
+                return turno;
+            }
+
+            set
+            {
+                turno = value;
+            }
+        }
+
+        public int Dialun
+        {
+            get
+            {
+                return dialun;
+            }
+
+            set
+            {
+                dialun = value;
+            }
+        }
+
+        public int Diamar
+        {
+            get
+            {
+                return diamar;
+            }
+
+            set
+            {
+                diamar = value;
+            }
+        }
+
+        public int Diamie
+        {
+            get
+            {
+                return diamie;
+            }
+
+            set
+            {
+                diamie = value;
+            }
+        }
+
+        public int Diajue
+        {
+            get
+            {
+                return diajue;
+            }
+
+            set
+            {
+                diajue = value;
+            }
+        }
+
+        public int Diavie
+        {
+            get
+            {
+                return diavie;
+            }
+
+            set
+            {
+                diavie = value;
+            }
+        }
+
+        public int Diasab
+        {
+            get
+            {
+                return diasab;
+            }
+
+            set
+            {
+                diasab = value;
+            }
+        }
+
+        public bool Estado
+        {
+            get
+            {
+                return estado;
+            }
+
+            set
+            {
+                estado = value;
+            }
+        }
     }
 }

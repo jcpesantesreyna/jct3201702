@@ -24,13 +24,13 @@ public class DaoUsuario {
 		Usuario u = null;
 		try {
 			CallableStatement cst = cn.prepareCall("{call pa_login(?,?)}");
-			/*cst.setString(1, _Login);
+			cst.setString(1, _Login);
 			cst.setString(2, _Passw);
-			*/
 			
 			
-			cst.setString(1, "admin");
-			cst.setString(2, "admin");
+			
+			/*cst.setString(1, "admin");
+			cst.setString(2, "admin");*/
 			ResultSet rs = cst.executeQuery();
 			if(rs.next()){
 				u = new Usuario();

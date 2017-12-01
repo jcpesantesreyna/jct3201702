@@ -41,10 +41,21 @@ public class ProgramacionController {
 	@RequestMapping(value = "/nuevaProgramacion", method = RequestMethod.GET)
 	public ModelAndView nuevoServicio( HttpServletRequest req) {
 		try {
+			String URI;
+				ModelAndView m = new ModelAndView("nuevaProgramacion");
+					URI = Constantes.urlAPI + "/ListaServicio";
+					RestTemplate rest = new RestTemplate();
+			ArrayList<Servicio> lista2 = new ArrayList<Servicio>();
+			ArrayList<Servicio> result2 = rest.getForObject(URI,lista2.getClass());
+			m.addObject("listaservicios", result2);
 			
+				URI = Constantes.urlAPI + "/ListaResponsable";
 			
+			ArrayList<Servicio> lista3 = new ArrayList<Servicio>();
+			ArrayList<Servicio> result3 = rest.getForObject(URI,lista3.getClass());
+			m.addObject("listaresponsables", result3);
 			
-			ModelAndView m = new ModelAndView("nuevaProgramacion");
+		
 			
 			
 			
@@ -92,12 +103,16 @@ public class ProgramacionController {
 		
 	}
 	@RequestMapping(value = "/insertarProgramacion", method = RequestMethod.GET)
-	public String insertarServicio(@RequestParam("apepat")String apepat,
-			@RequestParam("apemat")String apemat,
-			@RequestParam("nombres")String nombres,
-			@RequestParam("fechanac")String fechanac,
-			@RequestParam("dni")String dni,
-			@RequestParam("direccion")String direccion,
+	public String insertarServicio(@RequestParam("idservicio")	int idservicio,
+			@RequestParam("idresponsable")	int idresponsable ,
+			@RequestParam("turno")	String turno,
+			@RequestParam("dialun")	int dialun,
+			@RequestParam("diamar")	int diamar,
+			@RequestParam("diamie")	int diamie,
+			@RequestParam("diajue")	int diajue,
+			@RequestParam("diavie")	int diavie,
+			@RequestParam("diasab")	int diasab,
+			@RequestParam("estado")	boolean estado,
 			
 			HttpServletRequest req) {
 		try {
@@ -109,11 +124,10 @@ public class ProgramacionController {
 			
 			
 			
-			String uri = Constantes.urlAPI + "/insertarProgramacion?apepat="+apepat+
-					"&apemat="+apemat+"&nombres="+nombres+"&fechanac="+fechanac+"&dni="+dni+
-					"&direccion="+direccion;			
+			String uri = Constantes.urlAPI + "/insertarProgramacion?"
+					+ "idservicio="+idservicio+"&idresponsable="+idresponsable+"&turno="+turno+"&dialun="+dialun+ 
+		"&diamar="+diamar+"&diamie="+diamie+"&diajue="+diajue+"&diavie="+diavie+"&diasab="+diasab+"&estado="+estado;	
 			String result =  rest.getForObject(uri,String.class);
-					
 			if(result.equals("true")) {
 				return "redirect:/ListarProgramacion";				
 			}
