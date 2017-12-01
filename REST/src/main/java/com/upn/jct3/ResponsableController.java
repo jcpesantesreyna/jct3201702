@@ -67,8 +67,8 @@ public class ResponsableController {
 		
 		
 	}
-	@RequestMapping(value = "/ListaResponsable", method = RequestMethod.GET,produces="application/json")
-	public @ResponseBody ArrayList<Responsable> ListaResponsable(
+	@RequestMapping(value = "/ListaResponsableservicio", method = RequestMethod.GET,produces="application/json")
+	public @ResponseBody ArrayList<Responsable> ListaResponsable(@RequestParam("idservicio")int idservicio,
 			 HttpServletRequest req) {
 				ArrayList<Responsable> lista=null;
 				
@@ -76,7 +76,7 @@ public class ResponsableController {
 				try
 				{
 				
-					lista=LogicaResponsable.Instancia().Listar();
+					lista=LogicaResponsable.Instancia().Listar(idservicio);
 					
 				
 					
@@ -89,4 +89,5 @@ public class ResponsableController {
 				
 				
 			}
+	
 }

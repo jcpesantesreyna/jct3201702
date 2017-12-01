@@ -24,8 +24,19 @@ namespace Escritorio
         
 
         private void cboServicio_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {/*
+
+           String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsableservicio?idservicio="+ cboServicio.SelectedValue.ToString();
+
+            var json2 = new WebClient().DownloadString(sUrlRequest);
+            Console.WriteLine(json2);
+            List<Responsable> listaResponsable = new List<Responsable>();
+            listaResponsable = JsonConvert.DeserializeObject<List<Responsable>>(json2);*/
          
+            cboResponsable.DataSource = null;
+            cboResponsable.DisplayMember = "";
+            cboResponsable.ValueMember = "";
+            
         }
 
         private void Consultar_Click(object sender, EventArgs e)
@@ -33,15 +44,10 @@ namespace Escritorio
             //Programacion programacion =new Programacion();
             hoy = monthCalendar1.SelectionStart;
             String servicio;
-            String responsable;
+           
             servicio = cboServicio.SelectedValue.ToString();
 
-            responsable = cboResponsable.SelectedValue.ToString();
-            if (cboturno.Text == "")
-            {
-                MessageBox.Show("Debe seleccionar un turno");
-                return;
-            }
+           
             String turno = cboturno.Text.Substring(0, 1);
 
             turno = turno.ToLower();
@@ -109,9 +115,10 @@ namespace Escritorio
         {
             try
             {
-                if (txtCupos.Text=="0")
+                if (Convert.ToInt16(txtCupos.Text)<=0)
                 {
-
+                    MessageBox.Show("Cupos completos");
+                    return;
                 }
                 int idhistoria = Convert.ToInt16(txthistoria.Text);
                 int idprogramacion = programacion.Idprogramacion;
@@ -171,22 +178,7 @@ namespace Escritorio
                 cboServicio.DataSource = listaServicio;
                 cboServicio.ValueMember = "idservicio";
                 cboServicio.DisplayMember = "descripcion";
-                sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsable";
-
-                var json2 = new WebClient().DownloadString(sUrlRequest);
-                Console.WriteLine(json2);
-                List<Responsable> listaResponsable = new List<Responsable>();
-                listaResponsable = JsonConvert.DeserializeObject<List<Responsable>>(json2);
-                /* foreach (Responsable objeto in listaResponsable)
-                 {
-
-                     cboResponsable.Items.Add(objeto.Descripcion + "-" + objeto.Idresponsable.ToString());
-
-                 }
-                 */
-                cboResponsable.DataSource = listaResponsable;
-                cboResponsable.DisplayMember = "descripcion";
-                cboResponsable.ValueMember = "idresposanble";
+              
               
             }
 
@@ -289,6 +281,30 @@ namespace Escritorio
 
         }
 
-        
+        private void cboResponsable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnObtenermedicos_Click(object sender, EventArgs e)
+        {
+      
+
+           String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsableservicio?idservicio="+ cboServicio.SelectedValue.ToString();
+
+            var json2 = new WebClient().DownloadString(sUrlRequest);
+            Console.WriteLine(json2);
+            List<Responsable> listaResponsable = new List<Responsable>();
+            listaResponsable = JsonConvert.DeserializeObject<List<Responsable>>(json2);
+          
+             cboResponsable.DataSource = listaResponsable;
+             cboResponsable.DisplayMember = "descripcion";
+             cboResponsable.ValueMember = "idresposanble";
+        }
     }
 }

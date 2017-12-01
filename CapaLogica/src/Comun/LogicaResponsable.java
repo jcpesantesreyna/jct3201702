@@ -36,7 +36,15 @@ public class LogicaResponsable {
 			throw e;
 		}
 	}
-	
+	public ArrayList<Responsable> Listar(int idservicio) throws Exception{	
+		try {
+			return DaoResponsable.Instancia().ListarServicio(idservicio);
+		} catch (Exception e) {
+			throw e;
+		}
+		
+	}
+		
 	public boolean Insertar(String descripcion) throws Exception{	
 		try {
 			Responsable Responsable =new Responsable();

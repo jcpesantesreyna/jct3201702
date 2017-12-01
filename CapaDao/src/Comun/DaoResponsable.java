@@ -73,7 +73,29 @@ public class DaoResponsable {
 		ArrayList<Responsable> lista = new ArrayList<Responsable>();
 		try {
 			CallableStatement cst = cn.prepareCall("{call pa_listar_Responsables()}");
+		
+			ResultSet rs = cst.executeQuery();
+			while(rs.next()){
+				Responsable Responsable=new Responsable();
+				Responsable.setIdresposanble(rs.getInt("idResponsable"));
+				Responsable.setDescripcion(rs.getString("descripcion"));
 			
+				
+			
+				
+				lista.add(Responsable);
+			}
+		} catch (Exception e) {
+			throw e;
+		}finally{cn.close();}
+		return lista;
+	}
+	public ArrayList<Responsable> ListarServicio(int idservicio) throws Exception{		
+		Connection cn = Conexion.Instancia().Conectar();
+		ArrayList<Responsable> lista = new ArrayList<Responsable>();
+		try {
+			CallableStatement cst = cn.prepareCall("{call pa_doctor_servicios(?)}");
+			cst.setInt(1,idservicio);
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Responsable Responsable=new Responsable();

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblLunes = new System.Windows.Forms.Label();
             this.lblMartes = new System.Windows.Forms.Label();
             this.lblMiercoles = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.Consultar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCupos = new System.Windows.Forms.TextBox();
+            this.btnObtenermedicos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,57 +67,58 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Turno";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(113, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
-            // 
             // lblLunes
             // 
             this.lblLunes.AutoSize = true;
+            this.lblLunes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLunes.ForeColor = System.Drawing.Color.Blue;
             this.lblLunes.Location = new System.Drawing.Point(244, 42);
             this.lblLunes.Name = "lblLunes";
-            this.lblLunes.Size = new System.Drawing.Size(19, 13);
+            this.lblLunes.Size = new System.Drawing.Size(22, 16);
             this.lblLunes.TabIndex = 9;
             this.lblLunes.Text = "00";
             // 
             // lblMartes
             // 
             this.lblMartes.AutoSize = true;
+            this.lblMartes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMartes.ForeColor = System.Drawing.Color.Blue;
             this.lblMartes.Location = new System.Drawing.Point(273, 42);
             this.lblMartes.Name = "lblMartes";
-            this.lblMartes.Size = new System.Drawing.Size(19, 13);
+            this.lblMartes.Size = new System.Drawing.Size(22, 16);
             this.lblMartes.TabIndex = 10;
             this.lblMartes.Text = "00";
             // 
             // lblMiercoles
             // 
             this.lblMiercoles.AutoSize = true;
+            this.lblMiercoles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiercoles.ForeColor = System.Drawing.Color.Blue;
             this.lblMiercoles.Location = new System.Drawing.Point(304, 42);
             this.lblMiercoles.Name = "lblMiercoles";
-            this.lblMiercoles.Size = new System.Drawing.Size(19, 13);
+            this.lblMiercoles.Size = new System.Drawing.Size(22, 16);
             this.lblMiercoles.TabIndex = 11;
             this.lblMiercoles.Text = "00";
             // 
             // lblJueves
             // 
             this.lblJueves.AutoSize = true;
+            this.lblJueves.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJueves.ForeColor = System.Drawing.Color.Blue;
             this.lblJueves.Location = new System.Drawing.Point(337, 42);
             this.lblJueves.Name = "lblJueves";
-            this.lblJueves.Size = new System.Drawing.Size(19, 13);
+            this.lblJueves.Size = new System.Drawing.Size(22, 16);
             this.lblJueves.TabIndex = 12;
             this.lblJueves.Text = "00";
             // 
             // lblViernes
             // 
             this.lblViernes.AutoSize = true;
+            this.lblViernes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblViernes.ForeColor = System.Drawing.Color.Blue;
             this.lblViernes.Location = new System.Drawing.Point(371, 42);
             this.lblViernes.Name = "lblViernes";
-            this.lblViernes.Size = new System.Drawing.Size(19, 13);
+            this.lblViernes.Size = new System.Drawing.Size(22, 16);
             this.lblViernes.TabIndex = 13;
             this.lblViernes.Text = "00";
             // 
@@ -153,7 +154,7 @@
             // 
             this.cboServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboServicio.FormattingEnabled = true;
-            this.cboServicio.Location = new System.Drawing.Point(26, 131);
+            this.cboServicio.Location = new System.Drawing.Point(26, 118);
             this.cboServicio.Name = "cboServicio";
             this.cboServicio.Size = new System.Drawing.Size(135, 21);
             this.cboServicio.TabIndex = 18;
@@ -163,15 +164,16 @@
             // 
             this.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboResponsable.FormattingEnabled = true;
-            this.cboResponsable.Location = new System.Drawing.Point(26, 192);
+            this.cboResponsable.Location = new System.Drawing.Point(29, 193);
             this.cboResponsable.Name = "cboResponsable";
             this.cboResponsable.Size = new System.Drawing.Size(197, 21);
             this.cboResponsable.TabIndex = 19;
+            this.cboResponsable.SelectedIndexChanged += new System.EventHandler(this.cboResponsable_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(26, 159);
+            this.label9.Location = new System.Drawing.Point(26, 177);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 20;
@@ -180,9 +182,11 @@
             // lblSabado
             // 
             this.lblSabado.AutoSize = true;
+            this.lblSabado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSabado.ForeColor = System.Drawing.Color.Blue;
             this.lblSabado.Location = new System.Drawing.Point(402, 42);
             this.lblSabado.Name = "lblSabado";
-            this.lblSabado.Size = new System.Drawing.Size(19, 13);
+            this.lblSabado.Size = new System.Drawing.Size(22, 16);
             this.lblSabado.TabIndex = 21;
             this.lblSabado.Text = "00";
             // 
@@ -196,7 +200,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txthistoria);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(29, 250);
+            this.groupBox1.Location = new System.Drawing.Point(26, 254);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(433, 166);
             this.groupBox1.TabIndex = 22;
@@ -294,16 +298,29 @@
             // 
             // txtCupos
             // 
-            this.txtCupos.Location = new System.Drawing.Point(335, 228);
+            this.txtCupos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCupos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.txtCupos.Location = new System.Drawing.Point(356, 224);
             this.txtCupos.Name = "txtCupos";
-            this.txtCupos.Size = new System.Drawing.Size(100, 20);
+            this.txtCupos.Size = new System.Drawing.Size(100, 29);
             this.txtCupos.TabIndex = 25;
+            // 
+            // btnObtenermedicos
+            // 
+            this.btnObtenermedicos.Location = new System.Drawing.Point(28, 145);
+            this.btnObtenermedicos.Name = "btnObtenermedicos";
+            this.btnObtenermedicos.Size = new System.Drawing.Size(133, 23);
+            this.btnObtenermedicos.TabIndex = 26;
+            this.btnObtenermedicos.Text = "Obtener Medicos";
+            this.btnObtenermedicos.UseVisualStyleBackColor = true;
+            this.btnObtenermedicos.Click += new System.EventHandler(this.btnObtenermedicos_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 453);
+            this.Controls.Add(this.btnObtenermedicos);
             this.Controls.Add(this.txtCupos);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Consultar);
@@ -320,10 +337,10 @@
             this.Controls.Add(this.lblMiercoles);
             this.Controls.Add(this.lblMartes);
             this.Controls.Add(this.lblLunes);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Registrar Cita";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -335,7 +352,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblLunes;
         private System.Windows.Forms.Label lblMartes;
         private System.Windows.Forms.Label lblMiercoles;
@@ -361,6 +377,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.Button Registrar;
+        private System.Windows.Forms.Button btnObtenermedicos;
     }
 }
 
