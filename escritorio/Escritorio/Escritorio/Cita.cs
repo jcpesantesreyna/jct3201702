@@ -52,5 +52,7 @@ namespace Escritorio
                 idcita = value;
             }
         }
+
+        
     }
 }

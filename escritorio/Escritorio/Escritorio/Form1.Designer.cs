@@ -44,17 +44,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblSabado = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Consultar = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txthistoria = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNombres = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblfecha = new System.Windows.Forms.Label();
+            this.Registrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblfecha = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNombres = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txthistoria = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Consultar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCupos = new System.Windows.Forms.TextBox();
-            this.Registrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -204,64 +204,15 @@
             this.groupBox1.Text = "Registrar Cita";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // Consultar
+            // Registrar
             // 
-            this.Consultar.Location = new System.Drawing.Point(26, 220);
-            this.Consultar.Name = "Consultar";
-            this.Consultar.Size = new System.Drawing.Size(75, 23);
-            this.Consultar.TabIndex = 23;
-            this.Consultar.Text = "Consultar";
-            this.Consultar.UseVisualStyleBackColor = true;
-            this.Consultar.Click += new System.EventHandler(this.Consultar_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(175, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ingrese el numero de historia clinica";
-            // 
-            // txthistoria
-            // 
-            this.txthistoria.Location = new System.Drawing.Point(218, 27);
-            this.txthistoria.Name = "txthistoria";
-            this.txthistoria.Size = new System.Drawing.Size(100, 20);
-            this.txthistoria.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Nombres y Apellidos";
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Location = new System.Drawing.Point(137, 58);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(181, 20);
-            this.txtNombres.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 85);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Fecha:";
-            // 
-            // lblfecha
-            // 
-            this.lblfecha.AutoSize = true;
-            this.lblfecha.Location = new System.Drawing.Point(134, 85);
-            this.lblfecha.Name = "lblfecha";
-            this.lblfecha.Size = new System.Drawing.Size(0, 13);
-            this.lblfecha.TabIndex = 5;
+            this.Registrar.Location = new System.Drawing.Point(172, 105);
+            this.Registrar.Name = "Registrar";
+            this.Registrar.Size = new System.Drawing.Size(75, 23);
+            this.Registrar.TabIndex = 7;
+            this.Registrar.Text = "Registrar";
+            this.Registrar.UseVisualStyleBackColor = true;
+            this.Registrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -272,6 +223,65 @@
             this.button1.Text = "Consultar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblfecha
+            // 
+            this.lblfecha.AutoSize = true;
+            this.lblfecha.Location = new System.Drawing.Point(134, 85);
+            this.lblfecha.Name = "lblfecha";
+            this.lblfecha.Size = new System.Drawing.Size(0, 13);
+            this.lblfecha.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(37, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Fecha:";
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Location = new System.Drawing.Point(137, 58);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(181, 20);
+            this.txtNombres.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(29, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nombres y Apellidos";
+            // 
+            // txthistoria
+            // 
+            this.txthistoria.Location = new System.Drawing.Point(218, 27);
+            this.txthistoria.Name = "txthistoria";
+            this.txthistoria.Size = new System.Drawing.Size(100, 20);
+            this.txthistoria.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(26, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(175, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Ingrese el numero de historia clinica";
+            // 
+            // Consultar
+            // 
+            this.Consultar.Location = new System.Drawing.Point(26, 220);
+            this.Consultar.Name = "Consultar";
+            this.Consultar.Size = new System.Drawing.Size(75, 23);
+            this.Consultar.TabIndex = 23;
+            this.Consultar.Text = "Consultar";
+            this.Consultar.UseVisualStyleBackColor = true;
+            this.Consultar.Click += new System.EventHandler(this.Consultar_Click);
             // 
             // label6
             // 
@@ -288,16 +298,6 @@
             this.txtCupos.Name = "txtCupos";
             this.txtCupos.Size = new System.Drawing.Size(100, 20);
             this.txtCupos.TabIndex = 25;
-            // 
-            // Registrar
-            // 
-            this.Registrar.Location = new System.Drawing.Point(172, 105);
-            this.Registrar.Name = "Registrar";
-            this.Registrar.Size = new System.Drawing.Size(75, 23);
-            this.Registrar.TabIndex = 7;
-            this.Registrar.Text = "button2";
-            this.Registrar.UseVisualStyleBackColor = true;
-            this.Registrar.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 

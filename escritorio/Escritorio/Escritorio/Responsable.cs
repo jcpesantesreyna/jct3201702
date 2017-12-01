@@ -9,7 +9,7 @@ namespace Escritorio
   public  class Responsable
     {
 
-        private int idresponsable;
+        private int idresposanble;
         private String descripcion;
 
         public string Descripcion
@@ -25,22 +25,22 @@ namespace Escritorio
             }
         }
 
-        public int Idresponsable
+        public int Idresposanble
         {
             get
             {
-                return idresponsable;
+                return idresposanble;
             }
 
             set
             {
-                idresponsable = value;
+                idresposanble = value;
             }
         }
 
         public Responsable(int idresponsable, string descripcion)
         {
-            this.Idresponsable = idresponsable;
+            this.Idresposanble = idresponsable;
             this.Descripcion = descripcion;
         }
     }

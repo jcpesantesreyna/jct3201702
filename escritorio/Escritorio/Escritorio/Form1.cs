@@ -16,6 +16,7 @@ namespace Escritorio
 {
     public partial class Form1 : Form
     {
+        public int idusuario = 1;
         Historia historia;
            List<Cita> lista2 = new List<Cita>();
         DateTime hoy;
@@ -45,14 +46,14 @@ namespace Escritorio
 
             turno = turno.ToLower();
             String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaProgramacion?idservicio=" + servicio + "&turno=" + turno;
-             MessageBox.Show(sUrlRequest);
+           //  MessageBox.Show(sUrlRequest);
             var json2 = new WebClient().DownloadString(sUrlRequest);
 
             System.Console.WriteLine(" jason-"+json2);
             List<Programacion> lista = new List<Programacion>();
             lista = JsonConvert.DeserializeObject<List<Programacion>>(json2);
             System.Console.WriteLine(lista);
-            System.Console.WriteLine("  --"+lista[0].Idprogramacion);
+           // System.Console.WriteLine("  --"+lista[0].Idprogramacion);
             if (lista.Count() > 0)
             {
                 programacion = lista.ElementAt(0);
@@ -94,7 +95,7 @@ namespace Escritorio
                 var json = new WebClient().DownloadString(sUrlRequest);
              //   List<Servicio> listaServicio = new List<Servicio>();
                historia= JsonConvert.DeserializeObject<Historia>(json);
-                txtNombres.Text = historia.Apepat;
+                txtNombres.Text = historia.Apepat + " "+historia.Apemat+ " "+historia.Nombres;
 
             }
 
@@ -106,7 +107,41 @@ namespace Escritorio
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(programacion.Idprogramacion.ToString());
+            try
+            {
+                if (txtCupos.Text=="0")
+                {
+
+                }
+                int idhistoria = Convert.ToInt16(txthistoria.Text);
+                int idprogramacion = programacion.Idprogramacion;
+                String dia, mes, anio;
+                dia = lblfecha.Text.Substring(0, 2);
+                mes = lblfecha.Text.Substring(3, 2);
+                anio = lblfecha.Text.Substring(6, 4);
+                String fecha = anio + "-" + mes + "-" + dia;
+                string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/insertarCita?idhistoria=";
+                sUrlRequest = sUrlRequest + idhistoria.ToString()+"&idusuario="+idusuario.ToString()+"&idprogramacion="+idprogramacion.ToString();
+                sUrlRequest = sUrlRequest + "&fecha=" + fecha;
+              //  MessageBox.Show(sUrlRequest);
+                var json = new WebClient().DownloadString(sUrlRequest);
+                //   List<Servicio> listaServicio = new List<Servicio>();
+                
+                if(json=="true")
+                {
+                    MessageBox.Show("Ok");
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+        
         }
 
         public Form1()
@@ -139,6 +174,7 @@ namespace Escritorio
                 sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsable";
 
                 var json2 = new WebClient().DownloadString(sUrlRequest);
+                Console.WriteLine(json2);
                 List<Responsable> listaResponsable = new List<Responsable>();
                 listaResponsable = JsonConvert.DeserializeObject<List<Responsable>>(json2);
                 /* foreach (Responsable objeto in listaResponsable)
@@ -150,7 +186,7 @@ namespace Escritorio
                  */
                 cboResponsable.DataSource = listaResponsable;
                 cboResponsable.DisplayMember = "descripcion";
-                cboResponsable.ValueMember = "idresponsable";
+                cboResponsable.ValueMember = "idresposanble";
               
             }
 
@@ -167,21 +203,87 @@ namespace Escritorio
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+            try
+            {
+                string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaCita?idresponsable=" + cboResponsable.SelectedValue.ToString();
 
-            string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaCita?idresponsable=" + cboResponsable.SelectedValue.ToString(); ;
-            MessageBox.Show(cboResponsable.SelectedValue.ToString());
-            var json = new WebClient().DownloadString(sUrlRequest);
-            List<Servicio> listaServicio = new List<Servicio>();
-            listaServicio = JsonConvert.DeserializeObject<List<Servicio>>(json);
-            lblfecha.Text = monthCalendar1.SelectionStart.ToShortDateString();
-            foreach (Servicio objeto in listaServicio)
-              {
+               // MessageBox.Show(cboResponsable.SelectedValue.ToString());
+                var json = new WebClient().DownloadString(sUrlRequest);
+                List<Cita> listaServicio = new List<Cita>();
+                listaServicio = JsonConvert.DeserializeObject<List<Cita>>(json);
+                lblfecha.Text = monthCalendar1.SelectionStart.ToShortDateString();
+                int cupos = 0;
+                String dia, mes, anio;
+                dia = lblfecha.Text.Substring(0, 2);
+                mes = lblfecha.Text.Substring(3, 2);
+                anio = lblfecha.Text.Substring(6, 4);
+                String fecha = anio + "-" + mes + "-" + dia;
+                foreach (Cita objeto in listaServicio )
+                {
 
-                  cboServicio.Items.Add(objeto.Descripcion +"-"+objeto.Idservicio.ToString());
 
-              }
-             
+                    if (objeto.Fecha.ToString() == fecha && objeto.Programacion.Idprogramacion==programacion.Idprogramacion)
+                    {
+                        Console.WriteLine("si");
+                        cupos = cupos + 1;
+                    }
 
+                }
+                Console.WriteLine("cupos"+cupos);
+                if (monthCalendar1.SelectionStart.DayOfWeek== DayOfWeek.Monday)
+                    {
+
+                        cupos = Convert.ToInt16(lblLunes.Text) - cupos;
+
+
+                    }
+                if (monthCalendar1.SelectionStart.DayOfWeek == DayOfWeek.Tuesday)
+                {
+
+                    cupos = Convert.ToInt16(lblMartes.Text) - cupos;
+
+
+                }
+                if (monthCalendar1.SelectionStart.DayOfWeek == DayOfWeek.Wednesday)
+                {
+
+                    cupos = Convert.ToInt16(lblMiercoles.Text) - cupos;
+
+
+                }
+                if (monthCalendar1.SelectionStart.DayOfWeek == DayOfWeek.Thursday)
+                    {
+
+                        cupos = Convert.ToInt16(lblJueves.Text) - cupos;
+
+
+                    }
+                   
+                   
+                    if (monthCalendar1.SelectionStart.DayOfWeek == DayOfWeek.Friday)
+                    {
+
+                        cupos = Convert.ToInt16(lblViernes.Text) - cupos;
+
+
+                    }
+                    if (monthCalendar1.SelectionStart.DayOfWeek == DayOfWeek.Saturday)
+                    {
+
+                        cupos = Convert.ToInt16(lblSabado.Text) - cupos;
+
+
+                    }
+                  
+               
+                txtCupos.Text = cupos.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            
            
 
 

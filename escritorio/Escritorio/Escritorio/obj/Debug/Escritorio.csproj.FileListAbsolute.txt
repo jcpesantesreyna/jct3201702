@@ -9,3 +9,4 @@ D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritor
 D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.pdb
 D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Newtonsoft.Json.dll
 D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Newtonsoft.Json.xml
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.FrmLogin.resources
