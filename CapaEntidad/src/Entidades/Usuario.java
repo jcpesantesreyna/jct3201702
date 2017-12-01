@@ -3,6 +3,13 @@ package Entidades;
 public class Usuario {
 
 	private int usuarioid;
+	private int idresponsable;
+	public int getIdresponsable() {
+		return idresponsable;
+	}
+	public void setIdresponsable(int idresponsable) {
+		this.idresponsable = idresponsable;
+	}
 	public int getIdUsuario() {
 		return usuarioid;
 	}

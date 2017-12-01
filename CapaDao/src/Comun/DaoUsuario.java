@@ -38,6 +38,7 @@ public class DaoUsuario {
 				u.setSesion(rs.getString("sesion"));
 				u.setPassword(rs.getString("contrasenia"));
 				u.setTipousuario(rs.getString("tipo_usuario"));
+				u.setIdresponsable(rs.getInt("idresponsable"));
 			
 					
 				

@@ -16,6 +16,7 @@ namespace Escritorio
     public partial class Form1 : Form
     {
         DateTime hoy;
+        int lunes, martes, miercoles, jueves, viernes,sabado;
         public Form1()
         {
             InitializeComponent();
@@ -74,7 +75,7 @@ namespace Escritorio
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-
+            Programacion programacion;
             hoy = monthCalendar1.SelectionStart;
             String servicio;
             String responsable;
@@ -90,16 +91,41 @@ namespace Escritorio
             //MessageBox.Show(turno);
             turno = turno.ToLower();
             String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaProgramacion?idservicio=" + servicio + "&turno="+turno ;
-            /*
+            
             var json2 = new WebClient().DownloadString(sUrlRequest);
-            List<Responsable> listaResponsable = new List<Responsable>();
-            listaResponsable = JsonConvert.DeserializeObject<List<Responsable>>(json2);
-            foreach (Responsable objeto in listaResponsable)
+            List<Programacion> lista= new List<Programacion>();
+            lista= JsonConvert.DeserializeObject<List<Programacion>>(json2);
+
+            if(lista.Count()>0)
             {
+                
+            }
+            else
+            {
+                MessageBox.Show("sin datos");
+                return;
+            }
+            foreach (Programacion objeto in lista)
+            {
+                programacion = objeto;
+                
+                break;
 
-                cboResponsable.Items.Add(objeto.Descripcion + "-" + objeto.Idresponsable.ToString());
 
-            }*/
+
+            }
+
+
+        }
+
+        void inicializardias()
+        {
+            lunes = 0;
+            martes = 0;
+            miercoles = 0;
+            jueves = 0;
+            viernes = 0;
+            sabado = 0;
         }
     }
 }
