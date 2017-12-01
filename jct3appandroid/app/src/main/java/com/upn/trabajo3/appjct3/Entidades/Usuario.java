@@ -10,6 +10,15 @@ public class Usuario {
     private  String password;
     private String rol;
 
+    public int getIdresponsable() {
+        return idresponsable;
+    }
+
+    public void setIdresponsable(int idresponsable) {
+        this.idresponsable = idresponsable;
+    }
+
+    private int idresponsable;
     public int getIdusuario() {
         return idusuario;
     }

@@ -37,13 +37,14 @@
             this.lblViernes = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboturno = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cboServicio = new System.Windows.Forms.ComboBox();
+            this.cboResponsable = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblSabado = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Consultar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -114,17 +115,19 @@
             this.monthCalendar1.Location = new System.Drawing.Point(235, 64);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 15;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // comboBox1
+            // cboturno
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboturno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboturno.FormattingEnabled = true;
+            this.cboturno.Items.AddRange(new object[] {
             "Mañana",
             "Tarde"});
-            this.comboBox1.Location = new System.Drawing.Point(26, 64);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 21);
-            this.comboBox1.TabIndex = 16;
+            this.cboturno.Location = new System.Drawing.Point(26, 64);
+            this.cboturno.Name = "cboturno";
+            this.cboturno.Size = new System.Drawing.Size(135, 21);
+            this.cboturno.TabIndex = 16;
             // 
             // label8
             // 
@@ -135,21 +138,23 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Servicio";
             // 
-            // comboBox2
+            // cboServicio
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(26, 131);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(135, 21);
-            this.comboBox2.TabIndex = 18;
+            this.cboServicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboServicio.FormattingEnabled = true;
+            this.cboServicio.Location = new System.Drawing.Point(26, 131);
+            this.cboServicio.Name = "cboServicio";
+            this.cboServicio.Size = new System.Drawing.Size(135, 21);
+            this.cboServicio.TabIndex = 18;
             // 
-            // comboBox3
+            // cboResponsable
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(26, 192);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(197, 21);
-            this.comboBox3.TabIndex = 19;
+            this.cboResponsable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboResponsable.FormattingEnabled = true;
+            this.cboResponsable.Location = new System.Drawing.Point(26, 192);
+            this.cboResponsable.Name = "cboResponsable";
+            this.cboResponsable.Size = new System.Drawing.Size(197, 21);
+            this.cboResponsable.TabIndex = 19;
             // 
             // label9
             // 
@@ -176,20 +181,31 @@
             this.groupBox1.Size = new System.Drawing.Size(433, 166);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Registrar Cita";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Consultar
+            // 
+            this.Consultar.Location = new System.Drawing.Point(26, 220);
+            this.Consultar.Name = "Consultar";
+            this.Consultar.Size = new System.Drawing.Size(75, 23);
+            this.Consultar.TabIndex = 23;
+            this.Consultar.Text = "Consultar";
+            this.Consultar.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 453);
+            this.Controls.Add(this.Consultar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblSabado);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.cboResponsable);
+            this.Controls.Add(this.cboServicio);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboturno);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.lblViernes);
             this.Controls.Add(this.lblJueves);
@@ -217,13 +233,14 @@
         private System.Windows.Forms.Label lblViernes;
         private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboturno;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cboServicio;
+        private System.Windows.Forms.ComboBox cboResponsable;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblSabado;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button Consultar;
     }
 }
 

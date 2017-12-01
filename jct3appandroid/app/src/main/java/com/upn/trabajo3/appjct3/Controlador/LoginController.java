@@ -57,6 +57,7 @@ public class LoginController extends AsyncTask<String, Integer, Usuario> {
                 Global.Instancia().setIdUsuario(usuario.getIdusuario());
                 Global.Instancia().setUserName(usuario.getSesion());
                 Global.Instancia().setTipousuario(usuario.getRol());
+                Global.Instancia().setIdmesa(usuario.getIdresponsable());
                 Toast.makeText(contexto,"Ingresando... "+nom,Toast.LENGTH_LONG).show();
 
 

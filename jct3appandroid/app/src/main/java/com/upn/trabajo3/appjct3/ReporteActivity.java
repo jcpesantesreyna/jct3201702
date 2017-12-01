@@ -15,7 +15,7 @@ import android.widget.EditText;
 import com.upn.trabajo3.appjct3.Controlador.ConsultarItemsController;
 import com.upn.trabajo3.appjct3.Utilidades.Global;
 
-public class ReporteActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReporteActivity extends AppCompatActivity  {
     RecyclerView recyclerView;
     EditText txtBuscar;
     Button consultar;
@@ -24,9 +24,7 @@ public class ReporteActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporte);
 
-        consultar=(Button)findViewById(R.id.btnBuscar);
-        consultar.setOnClickListener(this);
-        txtBuscar=(EditText)findViewById(R.id.txtbuscar);
+
         recyclerViewItems();
    //     listar();
 
@@ -39,16 +37,8 @@ public class ReporteActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
     }
-    @Override
-    public void onClick(View v) {
-        if(R.id.btnBuscar==v.getId())
-        {
-            System.out.println("res: mi boton buscar");
-            listar();
 
 
-        }
-    }
     private void recyclerViewItems() {
         recyclerView = (RecyclerView) this.findViewById(R.id.rvlista);
 
@@ -68,7 +58,7 @@ public class ReporteActivity extends AppCompatActivity implements View.OnClickLi
     {
         ConsultarItemsController consultarItemsController=new ConsultarItemsController();
         Global.Instancia().setTipo("BE");
-        consultarItemsController.setDatos(getApplicationContext(),recyclerView,Integer.parseInt(txtBuscar.getText().toString()));
+        consultarItemsController.setDatos(getApplicationContext(),recyclerView,Global.Instancia().getIdmesa());
         consultarItemsController.execute();
 
     }

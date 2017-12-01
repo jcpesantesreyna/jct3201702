@@ -1,1 +1,11 @@
 D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Escritorio.exe.config
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Escritorio.exe
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Escritorio.pdb
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.csprojResolveAssemblyReference.cache
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.Form1.resources
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.Properties.Resources.resources
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.csproj.GenerateResource.Cache
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.exe
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\obj\Debug\Escritorio.pdb
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Newtonsoft.Json.dll
+D:\UPN\VIII\sowad\jct3201702\escritorio\Escritorio\Escritorio\bin\Debug\Newtonsoft.Json.xml
