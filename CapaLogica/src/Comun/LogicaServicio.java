@@ -37,7 +37,13 @@ public class LogicaServicio {
 			throw e;
 		}
 	}
-	
+	public ArrayList<Servicio> Listar(String turno) throws Exception{	
+		try {
+			return DaoServicio.Instancia().Listar(turno);
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 	public boolean Insertar(String descripcion) throws Exception{	
 		try {
 			Servicio servicio =new Servicio();

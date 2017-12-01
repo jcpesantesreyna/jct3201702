@@ -55,13 +55,14 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtCupos = new System.Windows.Forms.TextBox();
             this.btnObtenermedicos = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 42);
+            this.label1.Location = new System.Drawing.Point(25, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 7;
@@ -136,7 +137,7 @@
             this.cboturno.Items.AddRange(new object[] {
             "Mañana",
             "Tarde"});
-            this.cboturno.Location = new System.Drawing.Point(26, 64);
+            this.cboturno.Location = new System.Drawing.Point(26, 46);
             this.cboturno.Name = "cboturno";
             this.cboturno.Size = new System.Drawing.Size(135, 21);
             this.cboturno.TabIndex = 16;
@@ -315,11 +316,22 @@
             this.btnObtenermedicos.UseVisualStyleBackColor = true;
             this.btnObtenermedicos.Click += new System.EventHandler(this.btnObtenermedicos_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(24, 76);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "Obtener Servicios";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 453);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnObtenermedicos);
             this.Controls.Add(this.txtCupos);
             this.Controls.Add(this.label6);
@@ -378,6 +390,7 @@
         private System.Windows.Forms.TextBox txtCupos;
         private System.Windows.Forms.Button Registrar;
         private System.Windows.Forms.Button btnObtenermedicos;
+        private System.Windows.Forms.Button button2;
     }
 }
 

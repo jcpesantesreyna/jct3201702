@@ -90,4 +90,26 @@ public class ServicioController {
 				
 				
 			}
+	@RequestMapping(value = "/ListaServicio2", method = RequestMethod.GET,produces="application/json")
+	public @ResponseBody ArrayList<Servicio> ListaServicio(@RequestParam("turno")String turno,
+			 HttpServletRequest req) {
+				ArrayList<Servicio> lista=null;
+				
+				//
+				try
+				{
+				
+					lista=LogicaServicio.Instancia().Listar(turno);
+					
+				
+					
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				return lista;
+				
+				
+			}
 }

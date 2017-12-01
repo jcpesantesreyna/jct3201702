@@ -90,12 +90,13 @@ public class DaoResponsable {
 		}finally{cn.close();}
 		return lista;
 	}
-	public ArrayList<Responsable> ListarServicio(int idservicio) throws Exception{		
+	public ArrayList<Responsable> ListarServicio(int idservicio, String turno) throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
 		ArrayList<Responsable> lista = new ArrayList<Responsable>();
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_doctor_servicios(?)}");
+			CallableStatement cst = cn.prepareCall("{call pa_doctor_servicios(?,?)}");
 			cst.setInt(1,idservicio);
+			cst.setString(2,turno );
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Responsable Responsable=new Responsable();
@@ -113,3 +114,4 @@ public class DaoResponsable {
 		return lista;
 	}
 }
+

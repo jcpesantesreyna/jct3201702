@@ -106,4 +106,27 @@ public class DaoServicio {
 		}finally{cn.close();}
 		return lista;
 	}
+	public ArrayList<Servicio> Listar(String turno) throws Exception{		
+		Connection cn = Conexion.Instancia().Conectar();
+		ArrayList<Servicio> lista = new ArrayList<Servicio>();
+		try {
+			CallableStatement cst = cn.prepareCall("{call pa_servicio_turno(?)}");
+			cst.setString(1,turno);
+			ResultSet rs = cst.executeQuery();
+			while(rs.next()){
+				Servicio servicio=new Servicio();
+				servicio.setIdservicio(rs.getInt("idservicio"));
+				servicio.setDescripcion(rs.getString("descripcion"));
+			
+				
+			
+				
+				lista.add(servicio);
+			}
+		} catch (Exception e) {
+			throw e;
+		}finally{cn.close();}
+		return lista;
+	}
+	
 }

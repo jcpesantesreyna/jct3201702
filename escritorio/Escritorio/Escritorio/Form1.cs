@@ -137,6 +137,7 @@ namespace Escritorio
                 if(json=="true")
                 {
                     MessageBox.Show("Ok");
+                    monthCalendar1.Refresh();
                 }
                 else
                 {
@@ -163,21 +164,6 @@ namespace Escritorio
 
 
 
-                string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaServicio";
-
-                var json = new WebClient().DownloadString(sUrlRequest);
-                List<Servicio> listaServicio = new List<Servicio>();
-                listaServicio = JsonConvert.DeserializeObject <List <Servicio>> (json);
-                /*  foreach(Servicio objeto in listaServicio)
-                  {
-
-                      cboServicio.Items.Add(objeto.Descripcion +"-"+objeto.Idservicio.ToString());
-
-                  }
-                  */
-                cboServicio.DataSource = listaServicio;
-                cboServicio.ValueMember = "idservicio";
-                cboServicio.DisplayMember = "descripcion";
               
               
             }
@@ -295,7 +281,7 @@ namespace Escritorio
         {
       
 
-           String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsableservicio?idservicio="+ cboServicio.SelectedValue.ToString();
+           String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaResponsableservicio?idservicio="+ cboServicio.SelectedValue.ToString()+"&turno="+cboturno.Text.Substring(0,1).ToLower();
 
             var json2 = new WebClient().DownloadString(sUrlRequest);
             Console.WriteLine(json2);
@@ -305,6 +291,26 @@ namespace Escritorio
              cboResponsable.DataSource = listaResponsable;
              cboResponsable.DisplayMember = "descripcion";
              cboResponsable.ValueMember = "idresposanble";
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaServicio2?turno"+cboturno.Text.Substring(0,1).ToLower();
+
+            var json = new WebClient().DownloadString(sUrlRequest);
+            List<Servicio> listaServicio = new List<Servicio>();
+            listaServicio = JsonConvert.DeserializeObject<List<Servicio>>(json);
+            /*  foreach(Servicio objeto in listaServicio)
+              {
+
+                  cboServicio.Items.Add(objeto.Descripcion +"-"+objeto.Idservicio.ToString());
+
+              }
+              */
+            cboServicio.DataSource = listaServicio;
+            cboServicio.ValueMember = "idservicio";
+            cboServicio.DisplayMember = "descripcion";
         }
     }
 }

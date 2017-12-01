@@ -36,9 +36,9 @@ public class LogicaResponsable {
 			throw e;
 		}
 	}
-	public ArrayList<Responsable> Listar(int idservicio) throws Exception{	
+	public ArrayList<Responsable> Listar(int idservicio,String turno) throws Exception{	
 		try {
-			return DaoResponsable.Instancia().ListarServicio(idservicio);
+			return DaoResponsable.Instancia().ListarServicio(idservicio,turno);
 		} catch (Exception e) {
 			throw e;
 		}
