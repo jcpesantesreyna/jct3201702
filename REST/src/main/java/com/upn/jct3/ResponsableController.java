@@ -90,5 +90,25 @@ public class ResponsableController {
 				
 				
 			}
-	
+	@RequestMapping(value = "/ListaResponsable", method = RequestMethod.GET,produces="application/json")
+	public @ResponseBody ArrayList<Responsable> ListaResponsable(HttpServletRequest req) {
+				ArrayList<Responsable> lista=null;
+				
+				//
+				try
+				{
+				
+					lista=LogicaResponsable.Instancia().Listar();
+					
+				
+					
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				return lista;
+				
+				
+			}
 }

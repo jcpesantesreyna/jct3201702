@@ -132,7 +132,7 @@ public class ProgramacionController {
 	}
 	@RequestMapping(value = "/ListaProgramacion", method = RequestMethod.GET,produces="application/json")
 	public @ResponseBody ArrayList<Programacion> ListaProgramacion(@RequestParam("idservicio")int idservicio,
-			@RequestParam("turno")String turno,HttpServletRequest req
+			@RequestParam("turno")String turno,@RequestParam("idresponsable")	int idresponsable ,HttpServletRequest req
 			 ) {
 				ArrayList<Programacion> lista=null;
 				
@@ -140,7 +140,7 @@ public class ProgramacionController {
 				try
 				{
 				
-					lista=LogicaProgramacion.Instancia().Listar(idservicio,turno);
+					lista=LogicaProgramacion.Instancia().Listar(idservicio,turno,idresponsable);
 					
 				
 					

@@ -29,9 +29,9 @@ public class LogicaProgramacion {
 	}
 	
 	
-	public ArrayList<Programacion> Listar(int idservicio,String turno) throws Exception{	
+	public ArrayList<Programacion> Listar(int idservicio,String turno,int idresponsable) throws Exception{	
 		try {
-			return DaoProgramacion.Instancia().Listar(idservicio,turno);
+			return DaoProgramacion.Instancia().Listar(idservicio,turno,idresponsable);
 		} catch (Exception e) {
 			throw e;
 		}

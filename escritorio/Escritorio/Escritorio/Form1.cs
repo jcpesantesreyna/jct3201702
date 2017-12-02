@@ -51,7 +51,7 @@ namespace Escritorio
             String turno = cboturno.Text.Substring(0, 1);
 
             turno = turno.ToLower();
-            String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaProgramacion?idservicio=" + servicio + "&turno=" + turno;
+            String sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaProgramacion?idservicio=" + servicio + "&turno=" + turno + "&idresponsable=" + cboResponsable.SelectedValue.ToString() ;
            //  MessageBox.Show(sUrlRequest);
             var json2 = new WebClient().DownloadString(sUrlRequest);
 
@@ -64,6 +64,7 @@ namespace Escritorio
             {
                 programacion = lista.ElementAt(0);
                 System.Console.WriteLine("  --" + lista.ElementAt(0).Idprogramacion);
+                
             }
             else
             {
@@ -296,7 +297,7 @@ namespace Escritorio
         private void button2_Click_1(object sender, EventArgs e)
         {
 
-            string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaServicio2?turno"+cboturno.Text.Substring(0,1).ToLower();
+            string sUrlRequest = "http://servidorfinal.azurewebsites.net/REST/ListaServicio2?turno="+cboturno.Text.Substring(0,1).ToLower();
 
             var json = new WebClient().DownloadString(sUrlRequest);
             List<Servicio> listaServicio = new List<Servicio>();

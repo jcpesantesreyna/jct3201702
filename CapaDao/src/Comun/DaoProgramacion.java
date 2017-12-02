@@ -105,13 +105,14 @@ public class DaoProgramacion {
 	}
 	
 	
-	public ArrayList<Programacion> Listar(int idservicio, String turno) throws Exception{		
+	public ArrayList<Programacion> Listar(int idservicio, String turno, int idresponsable) throws Exception{		
 		Connection cn = Conexion.Instancia().Conectar();
 		ArrayList<Programacion> lista = new ArrayList<Programacion>();
 		try {
-			CallableStatement cst = cn.prepareCall("{call pa_listar_Programacion(?,?)}");
+			CallableStatement cst = cn.prepareCall("{call pa_listar_Programacion(?,?,?)}");
 			cst.setInt(1,idservicio);
 		cst.setString(2, turno);
+			cst.setInt(3,idresponsable);
 			ResultSet rs = cst.executeQuery();
 			while(rs.next()){
 				Programacion Programacion = new Programacion();

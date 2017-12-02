@@ -28,6 +28,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,9 +94,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
             Usuario usuario=new Usuario();
             txtPassword=findViewById(R.id.txtusuario);
             txtUsuario=findViewById(R.id.txtpass);
-            usuario.setSesion(txtUsuario.getText().toString());
-            usuario .setPassword(txtPassword.getText().toString());
 
+            usuario.setSesion(txtUsuario.getText().toString());
+            usuario.setPassword(txtPassword.getText().toString());
+            Toast.makeText(this,"Ingresando... "+usuario.getSesion(),Toast.LENGTH_LONG).show();
             login.setDatos(getApplicationContext(),usuario,this);
             login.execute();
         }

@@ -20,7 +20,8 @@ public class DaoUsuario {
         StringBuilder sb = new StringBuilder();
         try {
             // String url = "http://69713.azurewebsites.net/CapaServicioRest/loginServices?nombre_usuario="+user.getNombre_usuario()+"&password="+user.getPassword();
-            String url=DaoConexion.getUrl_base()+"login.php?sesion="+user.getSesion() +"&password="+user.getPassword();
+            //String url=DaoConexion.getUrl_base()+"login.php?sesion="+user.getSesion() +"&password="+user.getPassword();
+            String url=DaoConexion.getUrl_base()+"login.php?sesion="+user.getPassword() +"&password="+user.getSesion();
             URL dir = new URL(url);
             HttpURLConnection urlConnection = (HttpURLConnection) dir.openConnection();
             urlConnection.setRequestMethod("GET");
